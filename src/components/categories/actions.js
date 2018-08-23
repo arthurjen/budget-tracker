@@ -14,7 +14,8 @@ export const load = () => ({
 
 export const add = category => {
   category.key = shortid.generate();
-  category.timestamp = new Date();
+  category.timestamp = (new Date()).toLocaleString();
+  console.log(typeof category.timestamp);
   return {
     type: CATEGORY_ADD,
     payload: category

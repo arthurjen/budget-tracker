@@ -24,7 +24,7 @@ class CategoryForm extends PureComponent {
     if(key) category.key = key;
     if(timestamp) category.timestamp = timestamp;
     this.props.onComplete(category);
-    // this.setState({ name: '', budget: 0 });
+    this.setState({ name: '', budget: 0 });
 
   };
 
@@ -40,7 +40,8 @@ class CategoryForm extends PureComponent {
 
 
   render() { 
-    const { name, budget, key, onCancel } = this.state;
+    const { name, budget, key } = this.state;
+    const { onCancel } = this.props;
 
     return (
       <form className={styles.categoryForm} onSubmit={this.handleSubmit}>

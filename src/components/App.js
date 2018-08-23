@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Dashboard from './categories/Dashboard';
 import styles from './App.css';
 
-class App extends Component {
+class App extends PureComponent {
   render() {
     return (
       <Router>
