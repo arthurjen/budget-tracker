@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CategoryItem from './CategoryItem';
 import CategoryForm from './CategoryForm';
-import { update } from './actions';
+import { update, remove } from './actions';
 import styles from './Category.css';
 
 class Category extends PureComponent {
@@ -14,7 +14,8 @@ class Category extends PureComponent {
 
   static propTypes = {
     category: PropTypes.object.isRequired,
-    update: PropTypes.func.isRequired
+    update: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
   };
 
   toggleEdit = () => {
@@ -23,9 +24,12 @@ class Category extends PureComponent {
   };
 
   handleComplete = category => {
-    console.log('updating');
-    const { update } = this.props;
-    update(category);
+    this.props.update(category);
+    this.toggleEdit();
+  };
+
+  handleRemove = key => {
+    this.props.remove(key);
     this.toggleEdit();
   };
 
@@ -39,6 +43,7 @@ class Category extends PureComponent {
           ? <CategoryForm
             category={category}
             onComplete={this.handleComplete}
+            onRemove={this.handleRemove}
             onCancel={this.toggleEdit}
           />
           : <CategoryItem category={category} onEdit={this.toggleEdit}/>
@@ -50,5 +55,5 @@ class Category extends PureComponent {
  
 export default connect(
   null,
-  { update }
+  { update, remove }
 )(Category);

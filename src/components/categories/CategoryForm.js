@@ -14,7 +14,8 @@ class CategoryForm extends PureComponent {
   static propTypes = {
     category: PropTypes.object,
     onComplete: PropTypes.func.isRequired,
-    onCancel: PropTypes.func
+    onCancel: PropTypes.func,
+    onRemove: PropTypes.func
   };
 
   handleSubmit = event => {
@@ -25,7 +26,6 @@ class CategoryForm extends PureComponent {
     if(timestamp) category.timestamp = timestamp;
     this.props.onComplete(category);
     if(!key) this.setState({ name: '', budget: 0 });
-
   };
 
   handleChange = ({ target }) => {
@@ -37,6 +37,13 @@ class CategoryForm extends PureComponent {
     if(!category) return;
     this.setState(category);
   }
+
+  onDelete = event => {
+    event.preventDefault();
+    const { onRemove } = this.props;
+    const { key } = this.state;
+    onRemove(key);
+  };
 
 
   render() { 
@@ -53,10 +60,16 @@ class CategoryForm extends PureComponent {
           Amount: &nbsp;
           <input name="budget" value={budget} onChange={this.handleChange}/>
         </label>
-        {key &&
-          <button type="button" onClick={onCancel}>Cancel</button>
-        }
-        <button type="submit">{ key ? 'Save' : 'Add' }</button>
+        <section>
+          {key &&
+          <span>
+            <button type="button" onClick={onCancel}>Cancel</button>
+            <button type="remove" onClick={this.onDelete}>Delete</button>
+          </span>
+          }
+          <button type="submit">{ key ? 'Save' : 'Add' }</button>
+
+        </section>
       </form>
     );
   }

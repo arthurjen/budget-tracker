@@ -24,11 +24,13 @@ exports[`Category Form renders add if no category prop 1`] = `
         value={0}
       />
     </label>
-    <button
-      type="submit"
-    >
-      Add
-    </button>
+    <section>
+      <button
+        type="submit"
+      >
+        Add
+      </button>
+    </section>
   </form>
 </CategoryForm>
 `;
@@ -74,11 +76,13 @@ exports[`Category Form renders add if no category prop 2`] = `
         value={0}
       />
     </label>
-    <button
-      type="submit"
-    >
-      Add
-    </button>
+    <section>
+      <button
+        type="submit"
+      >
+        Add
+      </button>
+    </section>
   </form>
 </CategoryForm>
 `;
