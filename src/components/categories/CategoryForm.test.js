@@ -16,7 +16,6 @@ describe('Category Form', () => {
     const category = {
       name: 'Test Category',
       budget: 666,
-      
     };
 
     wrapper.find('input[name="name"]').simulate('change', {
@@ -42,39 +41,39 @@ describe('Category Form', () => {
     expect(toJSON(wrapper)).toMatchSnapshot();
   });
 
-  it.skip('renders edit if passed a category prop', () => {
-    const handleComplete = jest.fn();
+  it('renders edit if passed a category prop', () => {
+    const update = jest.fn();
     const promise = Promise.resolve();
-    handleComplete.mockReturnValueOnce(promise);
-    const handleCancel = jest.fn();
+    update.mockReturnValueOnce(promise);
+    const toggleEdit = jest.fn();
 
-    const note = {
-      key: 'asdf',
-      title: 'test title',
-      content: 'test content',
-      completed: false
+    const category = {
+      key: '123456',
+      name: 'Test Category',
+      budget: 666,
+      timestamp: 'test date'
     };
 
     const wrapper = mount(<CategoryForm
-      onComplete={handleComplete}
-      onCancel={handleCancel}
-      note={note}
+      onComplete={update}
+      onCancel={toggleEdit}
+      category={category}
     />);
 
-    wrapper.find('textarea').simulate('change', {
+    wrapper.find('input[name="budget"]').simulate('change', {
       target: {
-        name: 'content',
-        value: 'updated content'
+        name: 'budget',
+        value: 999
       }
     });
 
     wrapper.find('button[type="submit"]').simulate('submit');
 
-    const calls = handleComplete.mock.calls;
+    const calls = update.mock.calls;
     expect(calls.length).toBe(1);
     expect(calls[0][0]).toEqual({
-      ...note,
-      content: 'updated content'
+      ...category,
+      budget: 999
     });
 
     

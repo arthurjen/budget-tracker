@@ -26,7 +26,7 @@ class Category extends PureComponent {
     console.log('updating');
     const { update } = this.props;
     update(category);
-    this.toggleEdit;
+    this.toggleEdit();
   };
 
   render() { 
