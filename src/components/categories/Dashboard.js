@@ -11,6 +11,8 @@ class Dashboard extends Component {
   };
 
   render() {
+    const { add } = this.props;
+    
     return (
       <div>
         <section>

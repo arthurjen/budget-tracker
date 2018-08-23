@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Category from './Category';
 import { load } from './actions';
 
-class Categories extends Component {
+class Categories extends PureComponent {
 
   static propTypes = {
     categories: PropTypes.array,

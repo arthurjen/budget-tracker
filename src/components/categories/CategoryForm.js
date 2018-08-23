@@ -24,7 +24,7 @@ class CategoryForm extends PureComponent {
     if(key) category.key = key;
     if(timestamp) category.timestamp = timestamp;
     this.props.onComplete(category);
-    this.setState({ name: '', budget: 0 });
+    // this.setState({ name: '', budget: 0 });
 
   };
 
