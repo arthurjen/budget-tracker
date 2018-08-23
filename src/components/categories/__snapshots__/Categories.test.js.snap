@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Categories renders categories 1`] = `
+<ul>
+  <Connect(Category)
+    category={
+      Object {
+        "key": "1",
+        "name": "a",
+      }
+    }
+    key="1"
+  />
+  <Connect(Category)
+    category={
+      Object {
+        "key": "2",
+        "name": "b",
+      }
+    }
+    key="2"
+  />
+  <Connect(Category)
+    category={
+      Object {
+        "key": "3",
+        "name": "c",
+      }
+    }
+    key="3"
+  />
+</ul>
+`;

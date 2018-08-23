@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Category from './Category';
 import { load } from './actions';
 
-class Categories extends PureComponent {
+export class Categories extends PureComponent {
 
   static propTypes = {
     categories: PropTypes.array,
