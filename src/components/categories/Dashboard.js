@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CategoryForm from './CategoryForm';
-import Categories from './categories';
-import { load, add, update } from './actions';
+import Categories from './Categories';
+import { add } from './actions';
 
 class Dashboard extends Component {
-
+  static propTypes = {
+    add: PropTypes.func.isRequired
+  };
 
   render() {
     return (
       <div>
         <section>
           <h3>Add a Category</h3>
-          <CategoryForm />
+          <CategoryForm onComplete={add}/>
         </section>
         <section>
           <h2>Categories</h2>
@@ -26,5 +28,5 @@ class Dashboard extends Component {
 
 export default connect(
   state => ({ categories: state }),
-  { load, add }
+  { add }
 )(Dashboard);

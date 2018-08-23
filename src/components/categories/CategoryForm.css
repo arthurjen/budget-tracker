@@ -1,0 +1,14 @@
+:local(.categoryForm) {
+  label {
+    display: block;
+  }
+
+  button {
+    background: #B4FFB4;
+
+  }
+
+  input {
+    border: 1px solid grey;
+  }
+}
