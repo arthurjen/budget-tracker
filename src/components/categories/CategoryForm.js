@@ -21,6 +21,7 @@ class CategoryForm extends PureComponent {
   handleSubmit = event => {
     event.preventDefault();
     const { name, budget, key, timestamp } = this.state;
+    if(!name || !budget) return;
     const category = { name, budget };
     if(key) category.key = key;
     if(timestamp) category.timestamp = timestamp;
