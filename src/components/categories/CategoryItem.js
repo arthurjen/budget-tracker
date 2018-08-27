@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Expenses from '../expenses/Expenses';
+import styles from './CategoryItem.css';
 
 class CategoryItem extends PureComponent {
   static propTypes = {
@@ -13,10 +14,12 @@ class CategoryItem extends PureComponent {
     const { name, budget, id } = category;
 
     return (
-      <div>
-        <h4>{name}</h4>
-        <p>{budget}</p>
-        <button onClick={onEdit}>Edit</button>
+      <div className={styles.categoryItem}>
+        <section>
+          <h4>{name}</h4>
+          <p>{budget}</p>
+          <button onClick={onEdit}>Edit</button>
+        </section>
         <Expenses categoryId={id}/>
       </div>
     );

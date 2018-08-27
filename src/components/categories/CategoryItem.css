@@ -1,0 +1,8 @@
+:local(.categoryItem) {
+  section {
+    display: flex;
+    width: 200px;
+    justyify-content: space-between;
+    align-items: center;
+  }
+}
