@@ -13,8 +13,7 @@ class ExpenseItem extends PureComponent {
 
     return (
       <div>
-        <h6>{name}</h6>
-        <p>{cost}</p>
+        <p>{name}: {cost}</p>
         <button onClick={onEdit}>Edit</button>
       </div>
     );

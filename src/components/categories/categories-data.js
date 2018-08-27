@@ -10,21 +10,21 @@ export default [
         categoryId: 'Bu7UgdKj0',
         timestamp: '8/21/2018, 1:00:22 PM',
         name: 'Shell',
-        price: 35
+        cost: 35
       },
       {
         id: 'Bu7UgdKj2',
         categoryId: 'Bu7UgdKj0',
         timestamp: '8/22/2018, 1:00:22 PM',
         name: 'Chevron',
-        price: 10
+        cost: 10
       },
       {
         id: 'Bu7UgdKj3',
         categoryId: 'Bu7UgdKj0',
         timestamp: '8/23/2018, 1:00:22 PM',
         name: 'Arco',
-        price: 30
+        cost: 30
       }
     ]
   },
@@ -39,21 +39,21 @@ export default [
         categoryId: 'piTHiBSfs',
         timestamp: '8/21/2018, 1:00:22 PM',
         name: 'Noodles',
-        price: 40
+        cost: 40
       },
       {
         id: 'piTHiBSfu',
         categoryId: 'piTHiBSfs',
         timestamp: '8/22/2018, 1:00:22 PM',
         name: 'Starbucks',
-        price: 2
+        cost: 2
       },
       {
         id: 'piTHiBSfv',
         categoryId: 'piTHiBSfs',
         timestamp: '8/23/2018, 1:00:22 PM',
         name: 'Life of Riley',
-        price: 30
+        cost: 30
       }
     ]
   },
@@ -68,21 +68,21 @@ export default [
         categoryId: 'BlJ0Fede1',
         timestamp: '8/21/2018, 1:00:22 PM',
         name: 'Dota 2',
-        price: 10
+        cost: 10
       },
       {
         id: 'BlJ0Fede3',
         categoryId: 'BlJ0Fede1',
         timestamp: '8/22/2018, 1:00:22 PM',
         name: 'Dota 2',
-        price: 5
+        cost: 5
       },
       {
         id: 'BlJ0Fede4',
         categoryId: 'BlJ0Fede1',
         timestamp: '8/23/2018, 1:00:22 PM',
         name: 'Dota 2',
-        price: 4
+        cost: 4
       }
     ]
   },
