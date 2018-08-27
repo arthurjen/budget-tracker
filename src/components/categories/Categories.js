@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Category from './Category';
 import { load } from './actions';
+import { getCategories } from './reducers';
 
 export class Categories extends PureComponent {
 
@@ -32,6 +33,6 @@ export class Categories extends PureComponent {
 }
  
 export default connect(
-  state => ({ categories: state }),
+  state => ({ categories: getCategories(state) }),
   { load }
 )(Categories);
