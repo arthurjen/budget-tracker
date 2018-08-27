@@ -1,19 +1,18 @@
 import {
-  categories,
-  CATEGORY_LOAD,
-  CATEGORY_ADD,
-  CATEGORY_UPDATE,
-  CATEGORY_REMOVE
+  expenses,
+  EXPENSE_ADD,
+  EXPENSE_UPDATE,
+  EXPENSE_REMOVE
 } from './reducers';
 
-describe('categories reducers', () => {
+describe('expensesByCategoryID reducers', () => {
 
   it('initializes to empty array', () => {
-    const state = categories(undefined, {});
+    const state = expenses(undefined, {});
     expect(state).toEqual([]);
   });
 
-  it('loads categories', () => {
+  it('loads expenses', () => {
     const payload = [{}, {}, {}];
 
     const state = categories([], {

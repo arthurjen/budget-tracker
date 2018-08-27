@@ -1,19 +1,19 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import CategoryItem from './CategoryItem';
-import CategoryForm from './CategoryForm';
+import ExpenseItem from './ExpenseItem';
+import ExpenseForm from './ExpenseForm';
 import { update, remove } from './actions';
-import styles from './Category.css';
+import styles from './Expense.css';
 
-class Category extends PureComponent {
+class Expense extends PureComponent {
 
   state = {
     editing: false
   };
 
   static propTypes = {
-    category: PropTypes.object.isRequired,
+    expense: PropTypes.object.isRequired,
     update: PropTypes.func.isRequired,
     remove: PropTypes.func.isRequired
   };
@@ -23,8 +23,8 @@ class Category extends PureComponent {
     this.setState(({ editing }) => ({ editing: !editing }));
   };
 
-  handleComplete = category => {
-    this.props.update(category);
+  handleComplete = expense => {
+    this.props.update(expense);
     this.toggleEdit();
   };
 
@@ -34,19 +34,20 @@ class Category extends PureComponent {
   };
 
   render() { 
-    const { category } = this.props;
+    const { expense } = this.props;
     const { editing } = this.state;
 
     return (
-      <li className={styles.category}>
+      <li className={styles.expense}>
         {editing
-          ? <CategoryForm
-            category={category}
+          ? <ExpenseForm
+            categoryId={expense.categoryId}
+            expense={expense}
             onComplete={this.handleComplete}
             onRemove={this.handleRemove}
             onCancel={this.toggleEdit}
           />
-          : <CategoryItem category={category} onEdit={this.toggleEdit}/>
+          : <ExpenseItem expense={expense} onEdit={this.toggleEdit}/>
         }
       </li>
     );
@@ -56,4 +57,4 @@ class Category extends PureComponent {
 export default connect(
   null,
   { update, remove }
-)(Category);
+)(Expense);

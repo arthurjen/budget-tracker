@@ -23,7 +23,7 @@ export class Categories extends PureComponent {
       <ul>
         {categories.map(category => (
           <Category
-            key={category.key}
+            key={category.id}
             category={category}
           />
         ))}

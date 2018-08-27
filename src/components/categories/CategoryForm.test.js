@@ -48,7 +48,7 @@ describe('Category Form', () => {
     const toggleEdit = jest.fn();
 
     const category = {
-      key: '123456',
+      id: '123456',
       name: 'Test Category',
       budget: 666,
       timestamp: 'test date'

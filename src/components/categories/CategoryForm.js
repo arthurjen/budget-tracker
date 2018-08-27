@@ -8,7 +8,7 @@ class CategoryForm extends PureComponent {
     name: '',
     budget: 0,
     timestamp: null,
-    key: null
+    id: null
   };
 
   static propTypes = {
@@ -20,13 +20,13 @@ class CategoryForm extends PureComponent {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { name, budget, key, timestamp } = this.state;
+    const { name, budget, id, timestamp } = this.state;
     if(!name || !budget) return;
     const category = { name, budget };
-    if(key) category.key = key;
+    if(id) category.id = id;
     if(timestamp) category.timestamp = timestamp;
     this.props.onComplete(category);
-    if(!key) this.setState({ name: '', budget: 0 });
+    if(!id) this.setState({ name: '', budget: 0 });
   };
 
   handleChange = ({ target }) => {
@@ -42,13 +42,13 @@ class CategoryForm extends PureComponent {
   onDelete = event => {
     event.preventDefault();
     const { onRemove } = this.props;
-    const { key } = this.state;
-    onRemove(key);
+    const { id } = this.state;
+    onRemove(id);
   };
 
 
   render() { 
-    const { name, budget, key } = this.state;
+    const { name, budget, id } = this.state;
     const { onCancel } = this.props;
 
     return (
@@ -62,13 +62,13 @@ class CategoryForm extends PureComponent {
           <input name="budget" value={budget} onChange={this.handleChange}/>
         </label>
         <section>
-          {key &&
+          {id &&
           <span>
             <button type="button" onClick={onCancel}>Cancel</button>
             <button type="remove" onClick={this.onDelete}>Delete</button>
           </span>
           }
-          <button type="submit">{ key ? 'Save' : 'Add' }</button>
+          <button type="submit">{ id ? 'Save' : 'Add' }</button>
 
         </section>
       </form>

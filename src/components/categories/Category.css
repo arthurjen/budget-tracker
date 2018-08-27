@@ -1,6 +1,5 @@
 :local(.category) {
+  display: flex;
   list-style-type: none;
   border: 1px solid #FF96DC;
-  width: 150px;
-  height: 150px;
 }

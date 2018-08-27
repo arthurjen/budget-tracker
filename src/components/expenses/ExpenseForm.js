@@ -1,32 +1,33 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import styles from './CategoryForm.css';
+// import styles from './ExpenseForm.css';
 
-class CategoryForm extends PureComponent {
+class ExpenseForm extends PureComponent {
   
   state = {
+    id: null,
+    categoryId: null,
     name: '',
-    budget: 0,
+    cost: 0,
     timestamp: null,
-    key: null
   };
 
   static propTypes = {
-    category: PropTypes.object,
+    expense: PropTypes.object,
     onComplete: PropTypes.func.isRequired,
     onCancel: PropTypes.func,
-    onRemove: PropTypes.func
+    onRemove: PropTypes.func,
+    categoryId: PropTypes.string.isRequired
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    const { name, budget, key, timestamp } = this.state;
-    if(!name || !budget) return;
-    const category = { name, budget };
-    if(key) category.key = key;
-    if(timestamp) category.timestamp = timestamp;
-    this.props.onComplete(category);
-    if(!key) this.setState({ name: '', budget: 0 });
+    const { id, categoryId, name, cost, timestamp } = this.state;
+    const expense = { name, cost, categoryId };
+    if(id) expense.id = id;
+    if(timestamp) expense.timestamp = timestamp;
+    this.props.onComplete(expense);
+    if(!id) this.setState({ name: '', budget: 0 });
   };
 
   handleChange = ({ target }) => {
@@ -34,41 +35,41 @@ class CategoryForm extends PureComponent {
   };
 
   componentDidMount() {
-    const { category } = this.props;
-    if(!category) return;
-    this.setState(category);
+    const { expense, categoryId } = this.props;
+    this.setState({ categoryId });
+    if(!expense) return;
+    this.setState(expense);
   }
 
   onDelete = event => {
     event.preventDefault();
     const { onRemove } = this.props;
-    const { key } = this.state;
-    onRemove(key);
+    onRemove(this.state);
   };
 
 
   render() { 
-    const { name, budget, key } = this.state;
+    const { name, cost, id } = this.state;
     const { onCancel } = this.props;
 
     return (
-      <form className={styles.categoryForm} onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <label>
           Name: &nbsp;
           <input name="name" value={name} onChange={this.handleChange}/>
         </label>
         <label>
-          Amount: &nbsp;
-          <input name="budget" value={budget} onChange={this.handleChange}/>
+          Cost: &nbsp;
+          <input name="cost" value={cost} onChange={this.handleChange}/>
         </label>
         <section>
-          {key &&
+          {id &&
           <span>
             <button type="button" onClick={onCancel}>Cancel</button>
             <button type="remove" onClick={this.onDelete}>Delete</button>
           </span>
           }
-          <button type="submit">{ key ? 'Save' : 'Add' }</button>
+          <button type="submit">{ id ? 'Save' : 'Add' }</button>
 
         </section>
       </form>
@@ -76,4 +77,4 @@ class CategoryForm extends PureComponent {
   }
 }
  
-export default CategoryForm;
+export default ExpenseForm;

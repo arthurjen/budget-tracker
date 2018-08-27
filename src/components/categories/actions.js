@@ -13,7 +13,7 @@ export const load = () => ({
 });
 
 export const add = category => {
-  category.key = shortid.generate();
+  category.id = shortid.generate();
   category.timestamp = (new Date()).toLocaleString();
   console.log(typeof category.timestamp);
   return {

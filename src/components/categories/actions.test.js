@@ -13,7 +13,7 @@ describe('categories actions', () => {
       type: CATEGORY_ADD,
       payload: category
     });
-    expect(action.payload.key).toBeDefined();
+    expect(action.payload.id).toBeDefined();
     expect(action.payload.timestamp).toBeDefined();
   });
 
