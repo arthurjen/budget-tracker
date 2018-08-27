@@ -1,10 +1,8 @@
 export const EXPENSE_ADD = 'EXPENSE_ADD';
 export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
 export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
-// import CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE from '../categories/reducers';
-export const CATEGORY_LOAD = 'CATEGORY_LOAD';
-export const CATEGORY_ADD = 'CATEGORY_ADD';
-export const CATEGORY_REMOVE = 'CATEGORY_REMOVE';
+import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from '../categories/reducers';
+
 export const getExpensesByCategoryId = (state, id) => state.expensesByCategory[id];
 
 export function expensesByCategory(state = {}, { type, payload }) {
@@ -20,9 +18,9 @@ export function expensesByCategory(state = {}, { type, payload }) {
         [payload.id]: []
       };
     case CATEGORY_REMOVE: {
-      const copy = { ...state };
-      delete copy[payload];
-      return copy;
+      // eslint-disable-next-line
+      const { [payload]: ignore, ...rest } = state;
+      return rest;
     }
     case EXPENSE_ADD:
       return {

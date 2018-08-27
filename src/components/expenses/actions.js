@@ -1,9 +1,13 @@
 import {
-  CATEGORY_LOAD,
   EXPENSE_ADD,
   EXPENSE_UPDATE,
   EXPENSE_REMOVE
 } from './reducers';
+import {
+  CATEGORY_LOAD,
+  CATEGORY_ADD,
+  CATEGORY_REMOVE
+} from '../categories/reducers';
 import data from '../categories/categories-data';
 
 import shortid from 'shortid';

@@ -1,7 +1,6 @@
 :local(.app) {
   text-align: center;
   margin: 0;
-  background: #FFFF64;
   width: 100%;
   
   ul {
@@ -17,10 +16,8 @@
 
   button {
     border: 1px solid grey;
-    background: #B4FFB4;
   }
 
   i {
-    color: #FF96DC;
   }
 }
