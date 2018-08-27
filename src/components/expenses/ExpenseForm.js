@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-// import styles from './ExpenseForm.css';
+import styles from './ExpenseForm.css';
 
 class ExpenseForm extends PureComponent {
   
@@ -53,7 +53,7 @@ class ExpenseForm extends PureComponent {
     const { onCancel } = this.props;
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className={styles.expenseForm} onSubmit={this.handleSubmit}>
         <label>
           Name: &nbsp;
           <input name="name" value={name} onChange={this.handleChange}/>
