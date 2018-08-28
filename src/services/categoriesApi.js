@@ -4,7 +4,7 @@ const URL = 'https://mysticaltutor-e1723.firebaseio.com';
 const CATEGORIES_URL = `${URL}/categories`;
 
 const getCategoryUrl = key => `${CATEGORIES_URL}/${key}.json`;
-// const getExpenseUrl = key => `${CATEGORIES_URL}/${key}`;
+const getExpenseUrl = key => `${CATEGORIES_URL}/${key}/expenses`;
 
 export const loadCategories = () => {
   return get(`${CATEGORIES_URL}.json`);
@@ -13,9 +13,9 @@ export const loadCategories = () => {
 export const addCategory = category => {
   const url = `${CATEGORIES_URL}.json`;
   return post(url, category)
-    .then(res => {
-      category.id = res.name;
-      return category;
+    .then(res => { 
+      // category.id = res.name;
+      return { ...category, id: res.name };
     });
 };
 
@@ -39,14 +39,15 @@ export const removeCategory = id => {
 
 
 
-// export const addExpense = expense => {
-//   const url = `${getExpenseUrl(expense.categoryId)}/expenses.json`;
-//   return post(url, expense)
-//     .then(res => {
-//       expense.id = res.name;
-//       return expense;
-//     });
-// };
+export const addExpense = expense => {
+  const expenseUrl = getExpenseUrl(expense.categoryId);
+  const url = `${expenseUrl}.json`;
+  return post(url, expense)
+    .then(res => {
+      expense.id = res.name;
+      return expense;
+    });
+};
 
 // export const updateCategory = expense => {
 //   const { id, ...copy } = expense;

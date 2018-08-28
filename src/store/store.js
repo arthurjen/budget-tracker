@@ -6,7 +6,7 @@ import { expensesByCategory } from '../components/expenses/reducers';
 
 const rootReducer = combineReducers({
   categories,
-  // expensesByCategory,
+  expensesByCategory,
   error,
   loading
 });

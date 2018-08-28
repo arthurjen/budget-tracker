@@ -18,6 +18,7 @@ export const load = () => ({
 
 export const add = category => {
   category.timestamp = (new Date()).toLocaleString();
+  category.expenses = [];
   return {
     type: CATEGORY_ADD,
     payload: addCategory(category)

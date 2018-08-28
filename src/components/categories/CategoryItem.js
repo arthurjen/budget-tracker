@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-// import Expenses from '../expenses/Expenses';
+import Expenses from '../expenses/Expenses';
 import styles from './CategoryItem.css';
 
 class CategoryItem extends PureComponent {
@@ -20,7 +20,7 @@ class CategoryItem extends PureComponent {
           <p>{budget}</p>
           <button onClick={onEdit}>Edit</button>
         </section>
-        {/* <Expenses categoryId={id}/> */}
+        <Expenses categoryId={id}/>
       </div>
     );
   }

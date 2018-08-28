@@ -6,6 +6,7 @@ import { getExpensesByCategoryId } from './reducers';
 import { connect } from 'react-redux';
 import { load, add } from './actions';
 
+
 class Expenses extends PureComponent {
 
   static propTypes = {

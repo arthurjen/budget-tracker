@@ -30,7 +30,6 @@ class Expense extends PureComponent {
 
   handleRemove = id => {
     this.props.remove(id);
-    this.toggleEdit();
   };
 
   render() { 

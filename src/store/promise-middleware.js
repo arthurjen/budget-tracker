@@ -8,7 +8,7 @@ export default ({ dispatch }) => next => action => {
   if(!isPromise(payload)) return next(action);
 
   dispatch({ type: LOAD_START });
-
+  
   return payload
     .then(
       result => {

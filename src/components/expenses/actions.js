@@ -4,10 +4,17 @@ import {
   EXPENSE_REMOVE
 } from './reducers';
 
-import shortid from 'shortid';
+import { loadCategories } from '../../services/categoriesApi';
+
+import CATEGORY_LOAD from '../categories/reducers';
+
+export const load = () => ({
+  type: CATEGORY_LOAD,
+  payload: loadCategories()
+});
+
 
 export const add = expense => {
-  expense.id = shortid.generate();
   expense.timestamp = (new Date()).toLocaleString();
   return {
     type: EXPENSE_ADD,
