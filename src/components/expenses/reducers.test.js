@@ -10,7 +10,7 @@ import {
   CATEGORY_REMOVE
 } from '../categories/reducers';
 
-describe('categories reducers', () => {
+describe('expenses reducers', () => {
 
   it('initializes to empty object', () => {
     const state = expensesByCategory(undefined, {});
@@ -38,18 +38,27 @@ describe('categories reducers', () => {
     expect(state).toEqual(expectedState);
   });
 
-  // it('adds a category', () => {
-  //   const a = { name: 'a' };
-  //   const b = { name: 'b' };
-  //   const c = { name: 'c' };
+  it('adds an expense', () => {
+    const payload = { categoryId: 'abc123' };
 
-  //   const state = categories([a, b], {
-  //     type: EXPENSE_ADD,
-  //     payload: c
-  //   });
+    const _state = {
+      'abc123': [{}],
+      'def456': [{}]
+    };
 
-  //   expect(state).toEqual([a, b, c]);
-  // });
+    const expectedState = {
+      'abc123': [{}, { categoryId: 'abc123' }],
+      'def456': [{}]
+    };
+
+
+    const state = expensesByCategory(_state, {
+      type: EXPENSE_ADD,
+      payload
+    });
+
+    expect(state).toEqual(expectedState);
+  });
 
   // it('updates a category', () => {
   //   const a = { id: '1', name: 'a' };
