@@ -3,18 +3,8 @@ import {
   EXPENSE_UPDATE,
   EXPENSE_REMOVE
 } from './reducers';
-import {
-  CATEGORY_LOAD,
-  CATEGORY_ADD,
-  CATEGORY_REMOVE
-} from '../categories/reducers';
 
 import shortid from 'shortid';
-
-export const load = () => ({
-  type: CATEGORY_LOAD,
-  payload: data
-});
 
 export const add = expense => {
   expense.id = shortid.generate();
