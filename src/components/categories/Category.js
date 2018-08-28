@@ -32,7 +32,6 @@ class Category extends PureComponent {
   handleRemove = id => {
     const { remove } = this.props;
     return remove(id)
-      .then(() => this.toggleEdit());
   };
 
   render() { 

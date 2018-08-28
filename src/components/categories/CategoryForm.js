@@ -6,7 +6,7 @@ class CategoryForm extends PureComponent {
   
   state = {
     name: '',
-    budget: 0,
+    budget: '',
     timestamp: null,
     id: null
   };
@@ -22,11 +22,12 @@ class CategoryForm extends PureComponent {
     event.preventDefault();
     const { name, budget, id, timestamp } = this.state;
     if(!name || !budget) return;
-    const category = { name, budget };
-    if(id) category.id = id;
-    if(timestamp) category.timestamp = timestamp;
-    this.props.onComplete(category);
-    if(!id) this.setState({ name: '', budget: 0 });
+    let category = { name, budget };
+    if(id) category = { ...category, id, timestamp };
+    this.props.onComplete(category)
+      .then(() => {
+        if(!this.props.category) this.setState({ name: '', budget: '' });
+      });
   };
 
   handleChange = ({ target }) => {
