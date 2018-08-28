@@ -60,20 +60,52 @@ describe('expenses reducers', () => {
     expect(state).toEqual(expectedState);
   });
 
-  // it('updates a category', () => {
-  //   const a = { id: '1', name: 'a' };
-  //   const b = { id: '2', name: 'b' };
-  //   const c = { id: '3', name: 'c' };
+  it('updates an expense', () => {
+    const payload = {
+      id: 'a',
+      categoryId: 'abc123',
+      name: 'updated'
+    };
 
-  //   const updated = { id: '2', name: 'd' };
+    const _state = {
+      'abc123': [
+        {
+          id: 'a',
+          categoryId: 'abc123',
+          name: 'test'
+        },
+        {
+          id: 'b',
+          categoryId: 'abc123',
+          name: 'testo'
+        }
+      ],
+      'def456': [{}]
+    };
 
-  //   const state = categories([a, b, c], {
-  //     type: EXPENSE_UPDATE,
-  //     payload: updated
-  //   });
+    const expectedState = {
+      'abc123': [
+        {
+          id: 'a',
+          categoryId: 'abc123',
+          name: 'updated'
+        },
+        {
+          id: 'b',
+          categoryId: 'abc123',
+          name: 'testo'
+        }
+      ],
+      'def456': [{}]
+    };
 
-  //   expect(state).toEqual([a, updated, c]);
-  // });
+    const state = expensesByCategory(_state, {
+      type: EXPENSE_UPDATE,
+      payload
+    });
+
+    expect(state).toEqual(expectedState);
+  });
 
   // it('removes a category', () => {
   //   const a = { id: '1', name: 'a' };
