@@ -22,7 +22,11 @@ export const addCategory = category => {
 export const updateCategory = category => {
   const { id, ...copy } = category;
   const url = getCategoryUrl(id);
-  return put(url, copy);
+  return put(url, copy)
+    .then(res => {
+      res.id = id;
+      return res;
+    });
 };
 
 export const removeCategory = id => {

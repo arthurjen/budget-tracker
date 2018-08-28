@@ -24,13 +24,15 @@ class Category extends PureComponent {
   };
 
   handleComplete = category => {
-    this.props.update(category);
-    this.toggleEdit();
+    const { update } = this.props;
+    return update(category)
+      .then(() => this.toggleEdit());
   };
 
   handleRemove = id => {
-    this.props.remove(id);
-    this.toggleEdit();
+    const { remove } = this.props;
+    return remove(id)
+      .then(() => this.toggleEdit());
   };
 
   render() { 

@@ -4,8 +4,12 @@ import {
   CATEGORY_UPDATE,
   CATEGORY_REMOVE
 } from './reducers';
-import { loadCategories, addCategory } from '../../services/categoriesApi';
-import shortid from 'shortid';
+import { 
+  loadCategories,
+  addCategory,
+  updateCategory,
+  removeCategory
+} from '../../services/categoriesApi';
 
 export const load = () => ({
   type: CATEGORY_LOAD,
@@ -13,7 +17,6 @@ export const load = () => ({
 });
 
 export const add = category => {
-  category.id = shortid.generate();
   category.timestamp = (new Date()).toLocaleString();
   return {
     type: CATEGORY_ADD,
@@ -28,6 +31,6 @@ export const update = category => ({
 
 export const remove = id => ({
   type: CATEGORY_REMOVE,
-  payload: removeCategory(id)
+  payload: removeCategory(id).then(() => id)
 });
 
