@@ -1,12 +1,13 @@
 jest.mock('../../services/categoriesApi', () => ({
   loadCategories: jest.fn(),
   addCategory: jest.fn(),
+  updateCategory: jest.fn(),
   removeCategory: jest.fn()
 }));
 
 import { add, load, update, remove } from './actions';
 import { CATEGORY_ADD, CATEGORY_LOAD, CATEGORY_UPDATE, CATEGORY_REMOVE } from './reducers';
-import { loadCategories, addCategory, removeCategory } from '../../services/categoriesApi';
+import { loadCategories, addCategory, updateCategory, removeCategory } from '../../services/categoriesApi';
 
 describe('categories actions', () => {
 
@@ -30,6 +31,18 @@ describe('categories actions', () => {
     expect(payload).toBe(promise);
     expect(addCategory.mock.calls.length).toBe(1);
     expect(addCategory.mock.calls[0][0]).toBe(category);
+  });
+
+  it('updates a category', () => {
+    const category = { name: 'gas' };
+    const promise = Promise.resolve();
+    updateCategory.mockReturnValueOnce(promise);
+
+    const { type, payload } = update(category);
+    expect(type).toBe(CATEGORY_UPDATE);
+    expect(payload).toBe(promise);
+    expect(updateCategory.mock.calls.length).toBe(1);
+    expect(updateCategory.mock.calls[0][0]).toBe(category);
   });
   
   it('removes a category', () => {
