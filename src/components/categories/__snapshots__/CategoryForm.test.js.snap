@@ -21,7 +21,7 @@ exports[`Category Form renders add if no category prop 1`] = `
       <input
         name="budget"
         onChange={[Function]}
-        value={0}
+        value=""
       />
     </label>
     <section>
@@ -65,7 +65,7 @@ exports[`Category Form renders add if no category prop 2`] = `
       <input
         name="name"
         onChange={[Function]}
-        value=""
+        value="Test Category"
       />
     </label>
     <label>
@@ -73,7 +73,7 @@ exports[`Category Form renders add if no category prop 2`] = `
       <input
         name="budget"
         onChange={[Function]}
-        value={0}
+        value={666}
       />
     </label>
     <section>
