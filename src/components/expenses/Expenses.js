@@ -4,7 +4,7 @@ import Expense from './Expense.js';
 import ExpenseForm from './ExpenseForm.js';
 import { getExpensesByCategoryId } from './reducers';
 import { connect } from 'react-redux';
-import { load, add } from './actions';
+import { add } from './actions';
 
 
 class Expenses extends PureComponent {
@@ -12,13 +12,8 @@ class Expenses extends PureComponent {
   static propTypes = {
     expenses: PropTypes.array.isRequired,
     categoryId: PropTypes.string.isRequired,
-    load: PropTypes.func.isRequired,
     add: PropTypes.func.isRequired
   };
-
-  componentDidMount() {
-    this.props.load();
-  }
 
   render() { 
     const { expenses, add, categoryId } = this.props;
@@ -40,5 +35,5 @@ class Expenses extends PureComponent {
  
 export default connect(
   (state, { categoryId }) => ({ expenses: getExpensesByCategoryId(state, categoryId) }),
-  { load, add }
+  { add }
 )(Expenses);

@@ -6,26 +6,29 @@ const CATEGORIES_URL = `${URL}/categories`;
 const getCategoryUrl = key => `${CATEGORIES_URL}/${key}.json`;
 const getExpenseUrl = key => `${CATEGORIES_URL}/${key}/expenses`;
 
+const arrayify = obj => {
+  return obj
+    ? Object.keys(obj).map((key => {
+      const each = obj[key];
+      each.id = key;
+      return each;
+    }))
+    : [];
+};
+
 export const loadCategories = () => {
   return get(`${CATEGORIES_URL}.json`)
     .then(response => {
-      return response
-        ? Object.keys(response).map(key => {
-          const each = response[key];
-          each.id = key;
-          return each;
-        })
-        : [];
+      const categories = arrayify(response);
+      categories.forEach(category => category.expenses = arrayify(category.expenses));
+      return categories;
     });
 };
 
 export const addCategory = category => {
   const url = `${CATEGORIES_URL}.json`;
   return post(url, category)
-    .then(res => { 
-      // category.id = res.name;
-      return { ...category, id: res.name };
-    });
+    .then(res => ({ ...category, id: res.name }));
 };
 
 export const updateCategory = category => {

@@ -4,30 +4,16 @@ export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
 import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from '../categories/reducers';
 export const getExpensesByCategoryId = (state, id) => state.expensesByCategory[id];
 
-const arrayify = obj => {
-  return obj
-    ? Object.keys(obj).map((key => {
-      const each = obj[key];
-      each.id = key;
-      return each;
-    }))
-    : [];
-};
+
 
 
 export function expensesByCategory(state = {}, { type, payload }) {
   switch(type) {
-    case CATEGORY_LOAD: 
+    case CATEGORY_LOAD:
       return payload.reduce((map, category) => {
-        map[category.id] = arrayify(category.expenses);
+        map[category.id] = category.expenses;
         return map;
       }, {});
-      
-    
-      // return Object.keys(payload).forEach(key => {
-      //   payload[key] = payload[key].expenses || [];
-      // });
-    
     case CATEGORY_ADD:
       return {
         ...state,
