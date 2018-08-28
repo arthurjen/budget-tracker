@@ -17,6 +17,7 @@ describe.skip('categories actions', () => {
   });
 
   it('loads categories', () => {
+    const data = {};
     const action = load();
     expect(action).toEqual({
       type: CATEGORY_LOAD,
