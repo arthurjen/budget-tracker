@@ -107,16 +107,41 @@ describe('expenses reducers', () => {
     expect(state).toEqual(expectedState);
   });
 
-  // it('removes a category', () => {
-  //   const a = { id: '1', name: 'a' };
-  //   const b = { id: '2', name: 'b' };
-  //   const c = { id: '3', name: 'c' };
+  it('removes a category', () => {
+    const payload = {
+      id: 'a',
+      categoryId: 'abc123'
+    };
 
-  //   const state = categories([a, b, c], {
-  //     type: EXPENSE_REMOVE,
-  //     payload: '1'
-  //   });
+    const _state = {
+      'abc123': [
+        {
+          id: 'a',
+          categoryId: 'abc123',
+        },
+        {
+          id: 'b',
+          categoryId: 'abc123',
+        }
+      ],
+      'def456': [{}]
+    };
 
-  //   expect(state).toEqual([b, c]);
-  // });
+    const expectedState = {
+      'abc123': [
+        {
+          id: 'b',
+          categoryId: 'abc123',
+        }
+      ],
+      'def456': [{}]
+    };
+
+    const state = expensesByCategory(_state, {
+      type: EXPENSE_REMOVE,
+      payload
+    });
+
+    expect(state).toEqual(expectedState);
+  });
 });
