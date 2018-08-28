@@ -7,7 +7,16 @@ const getCategoryUrl = key => `${CATEGORIES_URL}/${key}.json`;
 const getExpenseUrl = key => `${CATEGORIES_URL}/${key}/expenses`;
 
 export const loadCategories = () => {
-  return get(`${CATEGORIES_URL}.json`);
+  return get(`${CATEGORIES_URL}.json`)
+    .then(response => {
+      return response
+        ? Object.keys(response).map(key => {
+          const each = response[key];
+          each.id = key;
+          return each;
+        })
+        : [];
+    });
 };
 
 export const addCategory = category => {

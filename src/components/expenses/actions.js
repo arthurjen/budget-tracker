@@ -3,22 +3,19 @@ import {
   EXPENSE_UPDATE,
   EXPENSE_REMOVE
 } from './reducers';
-
-import { loadCategories } from '../../services/categoriesApi';
-
-import CATEGORY_LOAD from '../categories/reducers';
+import { CATEGORY_LOAD } from '../categories/reducers';
+import { loadCategories, addExpense } from '../../services/categoriesApi';
 
 export const load = () => ({
   type: CATEGORY_LOAD,
   payload: loadCategories()
 });
 
-
 export const add = expense => {
   expense.timestamp = (new Date()).toLocaleString();
   return {
     type: EXPENSE_ADD,
-    payload: expense
+    payload: addExpense(expense)
   };
 };
 
