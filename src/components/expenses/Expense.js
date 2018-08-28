@@ -24,12 +24,12 @@ class Expense extends PureComponent {
   };
 
   handleComplete = expense => {
-    this.props.update(expense);
-    this.toggleEdit();
+    return this.props.update(expense)
+      .then(() => this.toggleEdit());
   };
 
-  handleRemove = id => {
-    this.props.remove(id);
+  handleRemove = expense => {
+    this.props.remove(expense);
   };
 
   render() { 

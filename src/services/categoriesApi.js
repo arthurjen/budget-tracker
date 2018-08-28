@@ -49,8 +49,7 @@ export const removeCategory = id => {
 
 
 export const addExpense = expense => {
-  const expenseUrl = getExpenseUrl(expense.categoryId);
-  const url = `${expenseUrl}.json`;
+  const url = `${getExpenseUrl(expense.categoryId)}.json`;
   return post(url, expense)
     .then(res => {
       expense.id = res.name;
@@ -58,13 +57,18 @@ export const addExpense = expense => {
     });
 };
 
-// export const updateCategory = expense => {
-//   const { id, ...copy } = expense;
-//   const url = getCategoryUrl(id);
-//   return put(url, copy);
-// };
+export const updateExpense = expense => {
+  const { id, ...copy } = expense;
+  const url = `${getExpenseUrl(copy.categoryId)}/${id}.json`;
+  return put(url, copy)
+    .then(res => {
+      res.id = id;
+      return res;
+    });
+};
 
-// export const removeCategory = id => {
-//   const url = getCategoryUrl(id);
-//   return del(url);
-// };
+export const removeExpense = expense => {
+  const { categoryId, id } = expense;
+  const url = `${getExpenseUrl(categoryId)}/${id}.json`;
+  return del(url);
+};

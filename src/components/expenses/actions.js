@@ -4,7 +4,7 @@ import {
   EXPENSE_REMOVE
 } from './reducers';
 import { CATEGORY_LOAD } from '../categories/reducers';
-import { loadCategories, addExpense } from '../../services/categoriesApi';
+import { loadCategories, addExpense, updateExpense, removeExpense } from '../../services/categoriesApi';
 
 export const load = () => ({
   type: CATEGORY_LOAD,
@@ -21,11 +21,11 @@ export const add = expense => {
 
 export const update = expense => ({
   type: EXPENSE_UPDATE,
-  payload: expense
+  payload: updateExpense(expense)
 });
 
-export const remove = id => ({
+export const remove = expense => ({
   type: EXPENSE_REMOVE,
-  payload: id
+  payload: removeExpense(expense).then(() => expense)
 });
 
