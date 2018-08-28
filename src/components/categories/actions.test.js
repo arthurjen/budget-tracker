@@ -1,6 +1,5 @@
 import { add, load, update, remove } from './actions';
 import { CATEGORY_ADD, CATEGORY_LOAD, CATEGORY_UPDATE, CATEGORY_REMOVE } from './reducers';
-import data from './categories-data';
 
 describe('categories actions', () => {
   it('adds a category', () => {

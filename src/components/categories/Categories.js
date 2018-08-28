@@ -18,7 +18,7 @@ export class Categories extends PureComponent {
 
   render() { 
     const { categories } = this.props;
-
+    if(!categories) return;
     return ( 
       <ul>
         {categories.map(category => (

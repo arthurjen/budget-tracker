@@ -8,7 +8,6 @@ import {
   CATEGORY_ADD,
   CATEGORY_REMOVE
 } from '../categories/reducers';
-import data from '../categories/categories-data';
 
 import shortid from 'shortid';
 
