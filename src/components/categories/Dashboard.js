@@ -15,12 +15,12 @@ class Dashboard extends Component {
     
     return (
       <div>
+        <h2>Categories</h2>
         <section>
           <h3>Add a Category</h3>
           <CategoryForm onComplete={add}/>
         </section>
         <section>
-          <h2>Categories</h2>
           <Categories />
         </section>
       </div>
