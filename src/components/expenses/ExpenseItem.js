@@ -2,14 +2,17 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styles from './expenseItem.css';
 
+
+
 class ExpenseItem extends PureComponent {
   static propTypes = {
     expense: PropTypes.object.isRequired,
     onEdit: PropTypes.func.isRequired,
+    total: PropTypes.string
   };
 
   render() { 
-    const { expense, onEdit } = this.props;
+    const { expense, onEdit, total } = this.props;
     const { name, cost, timestamp } = expense;
 
     return (

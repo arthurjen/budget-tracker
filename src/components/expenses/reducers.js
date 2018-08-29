@@ -1,11 +1,11 @@
 export const EXPENSE_ADD = 'EXPENSE_ADD';
 export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
 export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
+
 import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from '../categories/reducers';
+
 export const getExpensesByCategoryId = (state, id) => state.expensesByCategory[id];
-
-
-
+export const getTotalExpensesByCategory = (state, id) => getExpensesByCategoryId(state, id).reduce(((c, i) => c + parseInt(i.cost)), 0);
 
 export function expensesByCategory(state = {}, { type, payload }) {
   switch(type) {
