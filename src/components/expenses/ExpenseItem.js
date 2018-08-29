@@ -7,12 +7,11 @@ import styles from './expenseItem.css';
 class ExpenseItem extends PureComponent {
   static propTypes = {
     expense: PropTypes.object.isRequired,
-    onEdit: PropTypes.func.isRequired,
-    total: PropTypes.string
+    onEdit: PropTypes.func.isRequired
   };
 
   render() { 
-    const { expense, onEdit, total } = this.props;
+    const { expense, onEdit } = this.props;
     const { name, cost, timestamp } = expense;
 
     return (
