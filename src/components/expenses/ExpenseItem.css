@@ -1,0 +1,21 @@
+:local(.expenseItem) {
+  padding-top: 10px;
+  width: 230px;
+  border-bottom: 1px solid lightgrey;
+
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  span {
+    font-size: .5em;
+    color: lightgrey;
+  }
+
+  h5 {
+    font-size: 1em;
+    margin: 0;
+  }
+}

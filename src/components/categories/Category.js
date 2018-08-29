@@ -34,15 +34,15 @@ class Category extends PureComponent {
 
     return (
       <li className={styles.category}>
-        {editing
-          ? <CategoryForm
+        {editing &&
+          <CategoryForm
             category={category}
             onComplete={this.handleComplete}
             onRemove={remove}
             onCancel={this.toggleEdit}
           />
-          : <CategoryItem category={category} onEdit={this.toggleEdit}/>
         }
+        <CategoryItem category={category} onEdit={this.toggleEdit}/>
       </li>
     );
   }

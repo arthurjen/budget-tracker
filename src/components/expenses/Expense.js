@@ -19,7 +19,6 @@ class Expense extends PureComponent {
   };
 
   toggleEdit = () => {
-    console.log('toggling');
     this.setState(({ editing }) => ({ editing: !editing }));
   };
 
