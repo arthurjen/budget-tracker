@@ -28,13 +28,8 @@ class Category extends PureComponent {
       .then(() => this.toggleEdit());
   };
 
-  handleRemove = id => {
-    const { remove } = this.props;
-    return remove(id);
-  };
-
   render() { 
-    const { category } = this.props;
+    const { category, remove } = this.props;
     const { editing } = this.state;
 
     return (
@@ -43,7 +38,7 @@ class Category extends PureComponent {
           ? <CategoryForm
             category={category}
             onComplete={this.handleComplete}
-            onRemove={this.handleRemove}
+            onRemove={remove}
             onCancel={this.toggleEdit}
           />
           : <CategoryItem category={category} onEdit={this.toggleEdit}/>

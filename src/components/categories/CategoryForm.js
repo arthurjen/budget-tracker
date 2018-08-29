@@ -54,27 +54,32 @@ class CategoryForm extends PureComponent {
 
     return (
       <form className={styles.categoryForm} onSubmit={this.handleSubmit}>
-        <label>
-          Name: &nbsp;
-          <input name="name" value={name} onChange={this.handleChange}/>
-        </label>
-        <label>
-          Amount: &nbsp;
-          <input name="budget" value={budget} onChange={this.handleChange}/>
-        </label>
-        <section>
-          {id &&
-          <span>
-            <button type="button" onClick={onCancel}>Cancel</button>
-            <button type="remove" onClick={this.onDelete}>Delete</button>
-          </span>
-          }
-          <button type="submit">{ id ? 'Save' : 'Add' }</button>
+        {id &&
+          <i className="fas fa-times" onClick={this.onDelete}></i>
+        }
+        <section className="inputs">
+          <label>
+            <input name="name" placeholder="Category" value={name} onChange={this.handleChange}/>
+          </label>
+          <label>
+            <input name="budget" type="number" placeholder="Maximum $$$" value={budget} onChange={this.handleChange}/>
+          </label>
+        </section>
+        <section className="buttons">
+          <button type="button" onClick={onCancel}><i className="fas fa-ban"></i></button>
+          <button type="submit">
+            {id 
+              ? <i className="fas fa-check"></i>
+              : <i className="fas fa-plus"></i>
+            }
+          </button>
 
         </section>
       </form>
     );
   }
 }
+
+
  
 export default CategoryForm;

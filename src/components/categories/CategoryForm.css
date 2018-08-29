@@ -1,4 +1,14 @@
 :local(.categoryForm) {
+
+  display: grid;
+  height: 80px;
+  grid-template: 20px 1fr / 1fr 124px;
+  grid-template-areas:
+    ". x"
+    "inputs buttons";
+  border: 1px solid lightgrey;
+  padding: 0px 20px 20px 20px;
+  
   label {
     display: block;
   }
@@ -6,7 +16,46 @@
   
 
   input {
-    border: 1px solid grey;
+    border: 1px solid rgb(226, 145, 23);
+    height: 25px;
+    margin: 1px;
+  }
+  
+  .inputs {
+    grid-area: inputs;
   }
 
+  .buttons {
+    grid-area: buttons;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  button {
+    border: 1px solid rgb(226, 145, 23);
+    font-size: 20px;
+    width: 60px;
+    height: 60px;
+    background: white;
+  }
+
+  .fa-ban {
+    color: red;
+  }
+
+  .fa-plus, .fa-check {
+    color: green
+  }
+
+  .fa-times {
+    color: red;
+  }
+
+  .fa-times {
+    grid-area: x;
+    display: flex;
+    justify-content: flex-end;
+    align-items: start;
+  }
 }

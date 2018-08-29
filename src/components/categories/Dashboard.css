@@ -1,0 +1,19 @@
+:local(.dashboard) {
+  h2 {
+    text-align: center;
+    letter-spacing: 2px;
+    border-bottom: 1px solid black;
+  }
+
+  .toggle {
+    background: white;
+    padding: 10px 40px;
+
+  }
+
+  .category-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
