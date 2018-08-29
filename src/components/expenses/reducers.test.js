@@ -38,6 +38,38 @@ describe('expenses reducers', () => {
     expect(state).toEqual(expectedState);
   });
 
+  it('adds a category', () => {
+    const payload = {
+      id: 'abc123'
+    };
+
+    const expectedState = {
+      abc123: []
+    };
+
+    const state = expensesByCategory({}, {
+      type: CATEGORY_ADD,
+      payload
+    });
+
+    expect(state).toEqual(expectedState);
+  });
+
+  it('removes a category', () => {
+    const payload = 'abc123';
+
+    const _state = {
+      abc123: [{}]
+    };
+
+    const state = expensesByCategory(_state, {
+      type: CATEGORY_REMOVE,
+      payload
+    });
+
+    expect(state).toEqual({});
+  });
+
   it('adds an expense', () => {
     const payload = { categoryId: 'abc123' };
 
