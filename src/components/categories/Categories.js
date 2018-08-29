@@ -20,6 +20,7 @@ export class Categories extends PureComponent {
   render() { 
     const { categories } = this.props;
     if(!categories) return;
+    
     return ( 
       <ul className={styles.categories}>
         {categories.map(category => (

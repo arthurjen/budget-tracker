@@ -1,4 +1,6 @@
 :local(.category) {
   display: flex;
+  flex-direction: column;
   list-style-type: none;
+  margin: 20px 0px;
 }

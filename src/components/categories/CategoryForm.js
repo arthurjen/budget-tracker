@@ -24,10 +24,7 @@ class CategoryForm extends PureComponent {
     if(!name || !budget) return;
     let category = { name, budget };
     if(id) category = { ...category, id, timestamp };
-    this.props.onComplete(category)
-      .then(() => {
-        if(!this.props.category) this.setState({ name: '', budget: '' });
-      });
+    this.props.onComplete(category);
   };
 
   handleChange = ({ target }) => {

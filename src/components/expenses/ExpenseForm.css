@@ -1,12 +1,41 @@
 :local(.expenseForm) {
-  label {
-    display: block;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+  width: 100%;
 
   
+ 
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+  }
 
   input {
-    border: 1px solid grey;
+    border: 1px solid brown;
+    height: 15px;
+    width: 100px;
+    margin: 1px;
+  }
+  
+
+  button {
+    border: 1px solid brown;
+    font-size: 15px;
+    width: 40px;
+    height: 40px;
+    background: white;
+    margin-right: 1px;
+  }
+
+  .fa-ban, .fa-trash-alt {
+    color: red;
+  }
+
+  .fa-plus, .fa-check {
+    color: green
   }
 
 }

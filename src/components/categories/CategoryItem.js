@@ -15,10 +15,9 @@ class CategoryItem extends PureComponent {
 
     return (
       <div className={styles.categoryItem}>
-        <section>
-          <h4>{name}</h4>
+        <section className="title">
+          <h4 onClick={onEdit}>{name}</h4>
           <p>{budget}</p>
-          <button onClick={onEdit}>Edit</button>
         </section>
         <Expenses categoryId={id}/>
       </div>

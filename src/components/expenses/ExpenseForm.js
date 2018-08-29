@@ -8,7 +8,7 @@ class ExpenseForm extends PureComponent {
     id: null,
     categoryId: null,
     name: '',
-    cost: 0,
+    cost: '',
     timestamp: null,
   };
 
@@ -27,7 +27,6 @@ class ExpenseForm extends PureComponent {
     if(id) expense.id = id;
     if(timestamp) expense.timestamp = timestamp;
     this.props.onComplete(expense);
-    if(!id) this.setState({ name: '', budget: 0 });
   };
 
   handleChange = ({ target }) => {
@@ -54,24 +53,24 @@ class ExpenseForm extends PureComponent {
 
     return (
       <form className={styles.expenseForm} onSubmit={this.handleSubmit}>
-        <label>
-          Name: &nbsp;
-          <input name="name" value={name} onChange={this.handleChange}/>
-        </label>
-        <label>
-          Cost: &nbsp;
-          <input name="cost" value={cost} onChange={this.handleChange}/>
-        </label>
-        <section>
-          {id &&
-          <span>
-            <button type="button" onClick={onCancel}>Cancel</button>
-            <button type="remove" onClick={this.onDelete}>Delete</button>
-          </span>
-          }
-          <button type="submit">{ id ? 'Save' : 'Add' }</button>
-
+        <section className="inputs">
+          <label>
+            <input name="name" placeholder="Expense" value={name} onChange={this.handleChange}/>
+          </label>
+          <label>
+            <input name="cost" placeholder="Cost" value={cost} onChange={this.handleChange}/>
+          </label>
         </section>
+        {id &&
+        <button type="remove" onClick={this.onDelete}><i className="far fa-trash-alt" ></i></button>
+        }
+        <button type="button" onClick={onCancel}><i className="fas fa-ban"></i></button>
+        <button type="submit">
+          {id 
+            ? <i className="fas fa-check"></i>
+            : <i className="fas fa-plus"></i>
+          }
+        </button>
       </form>
     );
   }

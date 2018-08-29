@@ -19,7 +19,7 @@ class Dashboard extends Component {
   handleAdd = category => {
     const { add } = this.props;
     return add(category)
-      .then(() => this.toggleAdding);
+      .then(() => this.toggleAdding());
   };
 
   toggleAdding = () => {
@@ -27,7 +27,6 @@ class Dashboard extends Component {
   };
 
   render() {
-    const { add } = this.props;
     const { adding } = this.state;
     
     return (
@@ -35,13 +34,11 @@ class Dashboard extends Component {
         <h2>CATEGORIES</h2>
         <section className="category-form">
           {adding 
-            ? <CategoryForm onCancel={this.toggleAdding} onComplete={add}/>
+            ? <CategoryForm onCancel={this.toggleAdding} onComplete={this.handleAdd}/>
             : <button className="toggle" onClick={this.toggleAdding}>Add a Category</button>
           }
         </section>
-        <section>
-          <Categories />
-        </section>
+        <Categories />
       </div>
     );
   }
