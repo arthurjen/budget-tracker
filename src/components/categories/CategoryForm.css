@@ -1,32 +1,28 @@
 :local(.categoryForm) {
 
-  display: grid;
-  height: 80px;
-  grid-template: 20px 1fr / 1fr 124px;
-  grid-template-areas:
-    ". x"
-    "inputs buttons";
-  border: 1px solid lightgrey;
-  padding: 0px 20px 20px 20px;
-  
-  label {
-    display: block;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  height: 80px;
   
+  
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+  }
 
   input {
     border: 1px solid rgb(226, 145, 23);
     height: 25px;
+    width: 150px;
+    font-size: 1.2em;
     margin: 1px;
   }
   
-  .inputs {
-    grid-area: inputs;
-  }
 
   .buttons {
-    grid-area: buttons;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -40,22 +36,11 @@
     background: white;
   }
 
-  .fa-ban {
+  .fa-ban, .fa-trash-alt {
     color: red;
   }
 
   .fa-plus, .fa-check {
     color: green
-  }
-
-  .fa-times {
-    color: red;
-  }
-
-  .fa-times {
-    grid-area: x;
-    display: flex;
-    justify-content: flex-end;
-    align-items: start;
   }
 }

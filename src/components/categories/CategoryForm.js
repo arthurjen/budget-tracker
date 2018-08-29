@@ -54,9 +54,7 @@ class CategoryForm extends PureComponent {
 
     return (
       <form className={styles.categoryForm} onSubmit={this.handleSubmit}>
-        {id &&
-          <i className="fas fa-times" onClick={this.onDelete}></i>
-        }
+        
         <section className="inputs">
           <label>
             <input name="name" placeholder="Category" value={name} onChange={this.handleChange}/>
@@ -65,16 +63,16 @@ class CategoryForm extends PureComponent {
             <input name="budget" type="number" placeholder="Maximum $$$" value={budget} onChange={this.handleChange}/>
           </label>
         </section>
-        <section className="buttons">
-          <button type="button" onClick={onCancel}><i className="fas fa-ban"></i></button>
-          <button type="submit">
-            {id 
-              ? <i className="fas fa-check"></i>
-              : <i className="fas fa-plus"></i>
-            }
-          </button>
-
-        </section>
+        {id &&
+          <button type="remove" onClick={this.onDelete}><i className="far fa-trash-alt" ></i></button>
+        }
+        <button type="button" onClick={onCancel}><i className="fas fa-ban"></i></button>
+        <button type="submit">
+          {id 
+            ? <i className="fas fa-check"></i>
+            : <i className="fas fa-plus"></i>
+          }
+        </button>
       </form>
     );
   }
