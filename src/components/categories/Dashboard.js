@@ -6,19 +6,31 @@ import Categories from './Categories';
 import { add } from './actions';
 
 class Dashboard extends Component {
+
+  state = {
+    adding: false
+  };
+
   static propTypes = {
     add: PropTypes.func.isRequired
   };
 
+  toggleAdding = () => {
+    this.setState(({ adding }) => ({ adding: !adding }));
+  };
+
   render() {
     const { add } = this.props;
+    const { adding } = this.state;
     
     return (
       <div>
         <h2>Categories</h2>
         <section>
-          <h3>Add a Category</h3>
-          <CategoryForm onComplete={add}/>
+          {adding 
+            ? <CategoryForm onComplete={add}/>
+            : <button onClick={this.toggleAdding}>Add a Category</button>
+          }
         </section>
         <section>
           <Categories />
