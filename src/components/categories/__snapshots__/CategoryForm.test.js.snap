@@ -8,29 +8,41 @@ exports[`Category Form renders add if no category prop 1`] = `
     className="categoryForm"
     onSubmit={[Function]}
   >
-    <label>
-      Name:  
-      <input
-        name="name"
-        onChange={[Function]}
-        value=""
-      />
-    </label>
-    <label>
-      Amount:  
-      <input
-        name="budget"
-        onChange={[Function]}
-        value=""
-      />
-    </label>
-    <section>
-      <button
-        type="submit"
-      >
-        Add
-      </button>
+    <section
+      className="inputs"
+    >
+      <label>
+        <input
+          name="name"
+          onChange={[Function]}
+          placeholder="Category"
+          value=""
+        />
+      </label>
+      <label>
+        <input
+          name="budget"
+          onChange={[Function]}
+          placeholder="Maximum $$$"
+          type="number"
+          value=""
+        />
+      </label>
     </section>
+    <button
+      type="button"
+    >
+      <i
+        className="fas fa-ban"
+      />
+    </button>
+    <button
+      type="submit"
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </button>
   </form>
 </CategoryForm>
 `;
@@ -60,29 +72,41 @@ exports[`Category Form renders add if no category prop 2`] = `
     className="categoryForm"
     onSubmit={[Function]}
   >
-    <label>
-      Name:  
-      <input
-        name="name"
-        onChange={[Function]}
-        value="Test Category"
-      />
-    </label>
-    <label>
-      Amount:  
-      <input
-        name="budget"
-        onChange={[Function]}
-        value={666}
-      />
-    </label>
-    <section>
-      <button
-        type="submit"
-      >
-        Add
-      </button>
+    <section
+      className="inputs"
+    >
+      <label>
+        <input
+          name="name"
+          onChange={[Function]}
+          placeholder="Category"
+          value="Test Category"
+        />
+      </label>
+      <label>
+        <input
+          name="budget"
+          onChange={[Function]}
+          placeholder="Maximum $$$"
+          type="number"
+          value={666}
+        />
+      </label>
     </section>
+    <button
+      type="button"
+    >
+      <i
+        className="fas fa-ban"
+      />
+    </button>
+    <button
+      type="submit"
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </button>
   </form>
 </CategoryForm>
 `;

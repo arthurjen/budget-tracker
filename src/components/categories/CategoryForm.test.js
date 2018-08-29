@@ -32,7 +32,7 @@ describe('Category Form', () => {
       }
     });
 
-    wrapper.find('button').simulate('submit');
+    wrapper.find('button[type="submit"]').simulate('submit');
 
     const calls = add.mock.calls;
     expect(calls.length).toBe(1);
