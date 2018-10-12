@@ -1,6 +1,6 @@
 import { put, post, get, del } from './request';
-
 const URL = 'https://mysticaltutor-e1723.firebaseio.com';
+
 const CATEGORIES_URL = `${URL}/categories`;
 
 const getCategoryUrl = key => `${CATEGORIES_URL}/${key}.json`;
