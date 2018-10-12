@@ -1,0 +1,7 @@
+:local(.category) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+  margin: 20px 0px;
+}

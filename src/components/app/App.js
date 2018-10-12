@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import Dashboard from '../categories/Dashboard';
+import Header from './Header';
 import styles from './App.css';
-import Header from './Header.js';
-import Home from './Home.js';
-import DashboardContainer from './notes/DashboardContainer.js';
 
-class App extends Component {
+class App extends PureComponent {
   render() {
     return (
       <Router>
@@ -13,8 +12,7 @@ class App extends Component {
           <Header/>
           <main>
             <Switch>
-              <Route exact path="/" component={Home}/>
-              <Route exact path="/dashboard" component={DashboardContainer}/>
+              <Route exact path="/" component={Dashboard}/>
               <Redirect to="/"/>
             </Switch>
           </main>

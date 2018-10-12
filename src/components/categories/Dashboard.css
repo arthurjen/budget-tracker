@@ -1,0 +1,23 @@
+:local(.dashboard) {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  h2 {
+    text-align: center;
+    letter-spacing: 2px;
+    border-bottom: 1px solid black;
+  }
+
+  .toggle {
+    background: white;
+    padding: 10px 40px;
+    font-size: 1em;
+  }
+
+  .category-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

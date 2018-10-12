@@ -1,0 +1,30 @@
+:local(.header) {
+  /* background: rgb(46, 8, 107); */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid brown;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  #logo {
+    width: 50px;
+  }
+
+  i {
+    color: rgb(226, 145, 23);
+    font-size: 1.5em;
+    margin-right: 10px;
+  }
+
+  h1 {
+    margin-left: 20px;
+    font-weight: 400;
+    color: rgb(226, 145, 23);
+    letter-spacing: 3px;
+  }
+}

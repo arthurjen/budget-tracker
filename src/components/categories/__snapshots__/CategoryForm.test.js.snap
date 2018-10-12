@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Category Form renders add if no category prop 1`] = `
+<CategoryForm
+  onComplete={[MockFunction]}
+>
+  <form
+    className="categoryForm"
+    onSubmit={[Function]}
+  >
+    <section
+      className="inputs"
+    >
+      <label>
+        <input
+          name="name"
+          onChange={[Function]}
+          placeholder="Category"
+          value=""
+        />
+      </label>
+      <label>
+        <input
+          name="budget"
+          onChange={[Function]}
+          placeholder="Maximum $$$"
+          type="number"
+          value=""
+        />
+      </label>
+    </section>
+    <button
+      type="button"
+    >
+      <i
+        className="fas fa-ban"
+      />
+    </button>
+    <button
+      type="submit"
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </button>
+  </form>
+</CategoryForm>
+`;
+
+exports[`Category Form renders add if no category prop 2`] = `
+<CategoryForm
+  onComplete={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "budget": 666,
+            "name": "Test Category",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": Promise {},
+        },
+      ],
+    }
+  }
+>
+  <form
+    className="categoryForm"
+    onSubmit={[Function]}
+  >
+    <section
+      className="inputs"
+    >
+      <label>
+        <input
+          name="name"
+          onChange={[Function]}
+          placeholder="Category"
+          value="Test Category"
+        />
+      </label>
+      <label>
+        <input
+          name="budget"
+          onChange={[Function]}
+          placeholder="Maximum $$$"
+          type="number"
+          value={666}
+        />
+      </label>
+    </section>
+    <button
+      type="button"
+    >
+      <i
+        className="fas fa-ban"
+      />
+    </button>
+    <button
+      type="submit"
+    >
+      <i
+        className="fas fa-plus"
+      />
+    </button>
+  </form>
+</CategoryForm>
+`;
